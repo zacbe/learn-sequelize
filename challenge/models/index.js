@@ -24,7 +24,7 @@ const studentSchema = {
     },
   },
   favorite_class: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(25),
     defaultValue: "Computer Science",
   },
   school_year: {
