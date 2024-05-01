@@ -13,7 +13,10 @@ const countStudentYears = async (model, options) => {
  * give the returned column the alias num_students.
  */
 const options = {
-  attributes: ["school_year", [fn("SUM", col("school_year")), "num_students"]],
+  attributes: [
+    "school_year",
+    [fn("COUNT", col("school_year")), "num_students"],
+  ],
   group: ["school_year"],
 };
 
