@@ -9,8 +9,7 @@ const sequelize = new Sequelize("sequelize", "root", "pace-weekday-calves", {
   },
 });
 
-class Student extends Sequelize.Model {}
-const studentSchema = {
+const StudentSchema = {
   student_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -40,6 +39,7 @@ const tableOptions = {
   modelName: "student",
 };
 
-Student.init(studentSchema, { sequelize, ...tableOptions });
+class Student extends Sequelize.Model {}
+Student.init(StudentSchema, { sequelize, ...tableOptions });
 
 module.exports = { Student };
