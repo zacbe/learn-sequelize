@@ -58,7 +58,7 @@ const aggregateUsersByAge = {
 };
 
 // find all users where name is Jane OR age is 25
-const orOperator = { where: { [Op.or]: { username: "Jane", age: 25 } } };
+const orOperator = { where: { [Op.or]: [{ username: "Jane" }, { age: 25 }] } };
 
 // find all users where name is John AND age is 25
 const andOperator = { where: { [Op.and]: { username: "John", age: 25 } } };
@@ -70,10 +70,14 @@ const greaterThan = { where: { age: { [Op.gt]: 21 } } };
 const lessThanOrEqual = {
   where: {
     age: {
-      [Op.or]: {
-        [Op.lt]: 22,
-        [Op.eq]: null,
-      },
+      [Op.or]: [
+        {
+          [Op.lt]: 22,
+        },
+        {
+          [Op.eq]: null,
+        },
+      ],
     },
   },
 };
